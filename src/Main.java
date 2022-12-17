@@ -7,6 +7,7 @@ public class Main {
         ladaGranta.color = "желтый";
         ladaGranta.year = 2015;
         ladaGranta.country = "Россия";
+        System.out.println(ladaGranta);
 
         Car audiA8 = new Car();
         audiA8.brand = "Audi ";
@@ -15,6 +16,7 @@ public class Main {
         audiA8.color = "черный";
         audiA8.year = 2020;
         audiA8.country = "Германия";
+        System.out.println(audiA8);
 
         Car bMWZ8 = new Car();
         bMWZ8.brand = "BMW";
@@ -23,6 +25,7 @@ public class Main {
         bMWZ8.color = "черный";
         bMWZ8.year = 2021;
         bMWZ8.country = "Германия";
+        System.out.println(bMWZ8);
 
         Car kiaSportage = new Car();
         kiaSportage.brand = "Kia";
@@ -31,6 +34,7 @@ public class Main {
         kiaSportage.color = "красный";
         kiaSportage.year = 2018;
         kiaSportage.country = "Южная Корея";
+        System.out.println(kiaSportage);
 
         Car hyundaiAvante = new Car();
         hyundaiAvante.brand = "Hyundai";
@@ -39,6 +43,7 @@ public class Main {
         hyundaiAvante.color = "оранжевый";
         hyundaiAvante.year = 2016;
         hyundaiAvante.country = "Южная Корея";
+        System.out.println(hyundaiAvante);
 
 
     }
