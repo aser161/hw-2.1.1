@@ -1,48 +1,18 @@
 public class Main {
     public static void main(String[] args) {
-        Car ladaGranta = new Car();
-        ladaGranta.brand = "Lada";
-        ladaGranta.model = "Granta";
-        ladaGranta.engineVolume = 1.7f;
-        ladaGranta.color = "желтый";
-        ladaGranta.year = 2015;
-        ladaGranta.country = "Россия";
+        Car ladaGranta = new Car("Lada", "Granta", 1.7f, "желтый", 2015, "Россия");
         System.out.println(ladaGranta);
 
-        Car audiA8 = new Car();
-        audiA8.brand = "Audi ";
-        audiA8.model = "A8 50 L TDI quattro";
-        audiA8.engineVolume = 3;
-        audiA8.color = "черный";
-        audiA8.year = 2020;
-        audiA8.country = "Германия";
+        Car audiA8 = new Car("Audi", "A8 50 L TDI quattro", 3, "черный", 2020, "Германия");
         System.out.println(audiA8);
 
-        Car bMWZ8 = new Car();
-        bMWZ8.brand = "BMW";
-        bMWZ8.model = "Z8";
-        bMWZ8.engineVolume = 3;
-        bMWZ8.color = "черный";
-        bMWZ8.year = 2021;
-        bMWZ8.country = "Германия";
+        Car bMWZ8 = new Car("BMW", "Z8", 3, "черный", 2021, "Германия");
         System.out.println(bMWZ8);
 
-        Car kiaSportage = new Car();
-        kiaSportage.brand = "Kia";
-        kiaSportage.model = "Sportage";
-        kiaSportage.engineVolume = 2.4f;
-        kiaSportage.color = "красный";
-        kiaSportage.year = 2018;
-        kiaSportage.country = "Южная Корея";
+        Car kiaSportage = new Car("Kia", "Sportage", 2.4f, "красный", 2018, "Южная Корея");
         System.out.println(kiaSportage);
 
-        Car hyundaiAvante = new Car();
-        hyundaiAvante.brand = "Hyundai";
-        hyundaiAvante.model = "Avante";
-        hyundaiAvante.engineVolume = 1.6f;
-        hyundaiAvante.color = "оранжевый";
-        hyundaiAvante.year = 2016;
-        hyundaiAvante.country = "Южная Корея";
+        Car hyundaiAvante = new Car("Hyundai", "Avante", 1.6f, "оранжевый", 2016, "Южная Корея");
         System.out.println(hyundaiAvante);
 
 
