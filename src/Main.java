@@ -22,6 +22,9 @@ public class Main {
                 "автомат", "седан", "а125ее", 5, true);
         System.out.println(hyundaiAvante);
 
+        Car.Key keyHyundaiAvante = hyundaiAvante.new Key("есть","есть");
+        System.out.println(keyHyundaiAvante);
+
         hyundaiAvante.setSeasonRubber(11);
         System.out.println(hyundaiAvante.getSeasonRubber());
 

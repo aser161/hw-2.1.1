@@ -2,6 +2,24 @@ package transport;
 
 public class Car {
 
+    public class Key {
+        private final String remoteEngineStart;
+        private final String keylessEntry;
+
+        public Key(String remoteEngineStart, String keylessEntry) {
+            this.remoteEngineStart = remoteEngineStart;
+            this.keylessEntry = keylessEntry;
+        }
+
+
+        @Override
+        public String toString() {
+
+            return "Удаленный запуск двигателя: " + remoteEngineStart +
+                    "\n"+ " Бесключевой доступ: " + keylessEntry ;
+        }
+    }
+
     private final String brand;
     private final String model;
     private float engineVolume;
