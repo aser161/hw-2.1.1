@@ -1,50 +1,51 @@
+import transport.*;
+
 public class Main {
     public static void main(String[] args) {
-        Car ladaGranta = new Car();
-        ladaGranta.brand = "Lada";
-        ladaGranta.model = "Granta";
-        ladaGranta.engineVolume = 1.7f;
-        ladaGranta.color = "желтый";
-        ladaGranta.year = 2015;
-        ladaGranta.country = "Россия";
-        System.out.println(ladaGranta);
 
-        Car audiA8 = new Car();
-        audiA8.brand = "Audi ";
-        audiA8.model = "A8 50 L TDI quattro";
-        audiA8.engineVolume = 3;
-        audiA8.color = "черный";
-        audiA8.year = 2020;
-        audiA8.country = "Германия";
-        System.out.println(audiA8);
-
-        Car bMWZ8 = new Car();
-        bMWZ8.brand = "BMW";
-        bMWZ8.model = "Z8";
-        bMWZ8.engineVolume = 3;
-        bMWZ8.color = "черный";
-        bMWZ8.year = 2021;
-        bMWZ8.country = "Германия";
-        System.out.println(bMWZ8);
-
-        Car kiaSportage = new Car();
-        kiaSportage.brand = "Kia";
-        kiaSportage.model = "Sportage";
-        kiaSportage.engineVolume = 2.4f;
-        kiaSportage.color = "красный";
-        kiaSportage.year = 2018;
-        kiaSportage.country = "Южная Корея";
-        System.out.println(kiaSportage);
-
-        Car hyundaiAvante = new Car();
-        hyundaiAvante.brand = "Hyundai";
-        hyundaiAvante.model = "Avante";
-        hyundaiAvante.engineVolume = 1.6f;
-        hyundaiAvante.color = "оранжевый";
-        hyundaiAvante.year = 2016;
-        hyundaiAvante.country = "Южная Корея";
-        System.out.println(hyundaiAvante);
+        DriverB driverB = new DriverB("Иванов ИИ", true, 5);
+        DriverC driverC = new DriverC("Петров ИИ", true, 7);
+        DriverD driverD = new DriverD("Котов ИИ", true, 9);
 
 
+        Car ladaGranta = new Car("Lada", "Granta", 1.7f, driverB);
+        printInfo(ladaGranta);
+
+        Car audiA8 = new Car("Audi", "A8 50 L TDI quattro", 3, driverB);
+        printInfo(audiA8);
+
+        Car bMWZ8 = new Car("BMW", "Z8", 3, driverB);
+        printInfo(bMWZ8);
+
+        Car kiaSportage = new Car("Kia", "Sportage", 2.4f, driverB);
+        printInfo(kiaSportage);
+
+
+        Bus ford1 = new Bus("Ford", "Transit", 2, driverD);
+        printInfo(ford1);
+
+        Bus ford2 = new Bus("Ford", "Transit", 2, driverD);
+        printInfo(ford2);
+
+        Bus ford3 = new Bus("Ford", "Transit", 2,driverD);
+        printInfo(ford3);
+
+        Bus ford4 = new Bus("Ford", "Transit", 2,driverD);
+        printInfo(ford4);
+
+        Truck man1 = new Truck("MB", "Actros", 5,driverC);
+        printInfo(man1);
+
+        Truck man2 = new Truck("MB", "Actros", 5,driverC);
+        printInfo(man2);
+
+        Truck man3 = new Truck("MB", "Actros", 5,driverC);
+        printInfo(man3);
+
+        Truck man4 = new Truck("MB", "Actros", 5,driverC);
+        printInfo(man4);
+    }
+    private static void printInfo(Transport <?> transport){
+        System.out.println("водитель "+ transport.getDriver() +" управляет автомобилем "+ transport.getBrand() +" "+ transport.getModel() +" и будет участвовать в заезде");
     }
 }
