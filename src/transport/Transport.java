@@ -1,6 +1,6 @@
 package transport;
 
-public class Transport<A extends Driver> implements Competing {
+public abstract class Transport<A extends Driver> implements Competing {
     private final String brand;
     private final String model;
     private float engineVolume;
@@ -46,6 +46,8 @@ public class Transport<A extends Driver> implements Competing {
     public void setDriver(A driver) {
         this.driver = driver;
     }
+
+    public abstract void printType();
 
     @Override
     public String toString() {
