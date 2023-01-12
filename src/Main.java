@@ -1,41 +1,51 @@
-import transport.Bus;
-import transport.Car;
+import transport.*;
 
 public class Main {
     public static void main(String[] args) {
-        Car ladaGranta = new Car("Lada", "Granta", 1.7f, "желтый", 2015, "Россия",
-                "механика", "седан", "а121ее", 5, true, 140);
-        System.out.println(ladaGranta);
 
-        Car audiA8 = new Car("Audi", "A8 50 L TDI quattro", 3, "черный", 2020, "Германия",
-                "автомат", "седан", "а122ее", 5, true, 140);
-        System.out.println(audiA8);
+        DriverB driverB = new DriverB("Иванов ИИ", true, 5);
+        DriverC driverC = new DriverC("Петров ИИ", true, 7);
+        DriverD driverD = new DriverD("Котов ИИ", true, 9);
 
-        Car bMWZ8 = new Car("BMW", "Z8", 3, "черный", 2021, "Германия",
-                "автомат", "седан", "а123ее", 5, true, 140);
-        System.out.println(bMWZ8);
 
-        Car kiaSportage = new Car("Kia", "Sportage", 2.4f, "красный", 2018, "Южная Корея",
-                "механика", "внедорожник", "а124ее", 5, true, 140);
-        System.out.println(kiaSportage);
+        Car ladaGranta = new Car("Lada", "Granta", 1.7f, driverB);
+        printInfo(ladaGranta);
 
-        Car hyundaiAvante = new Car("Hyundai", "Avante", 1.6f, "оранжевый", 2016, "Южная Корея",
-                "автомат", "седан", "а125ее", 5, true, 140);
-        System.out.println(hyundaiAvante);
+        Car audiA8 = new Car("Audi", "A8 50 L TDI quattro", 3, driverB);
+        printInfo(audiA8);
 
-//        Car.Key keyHyundaiAvante = hyundaiAvante.new Key("есть","есть");
-//        System.out.println(keyHyundaiAvante);
-//
-//        hyundaiAvante.setSeasonRubber(11);
-//        System.out.println(hyundaiAvante.getSeasonRubber());
-        Bus ford = new Bus("Ford", "Transit", 2010, "Германия", "красный", 120);
-        System.out.println(ford);
+        Car bMWZ8 = new Car("BMW", "Z8", 3, driverB);
+        printInfo(bMWZ8);
 
-        Bus ford1 = new Bus("Ford", "Transit", 2011, "Германия", "красный", 120);
-        System.out.println(ford1);
+        Car kiaSportage = new Car("Kia", "Sportage", 2.4f, driverB);
+        printInfo(kiaSportage);
 
-        Bus ford2 = new Bus("Ford", "Transit", 2012, "Германия", "красный", 120);
-        System.out.println(ford2);
 
+        Bus ford1 = new Bus("Ford", "Transit", 2, driverD);
+        printInfo(ford1);
+
+        Bus ford2 = new Bus("Ford", "Transit", 2, driverD);
+        printInfo(ford2);
+
+        Bus ford3 = new Bus("Ford", "Transit", 2,driverD);
+        printInfo(ford3);
+
+        Bus ford4 = new Bus("Ford", "Transit", 2,driverD);
+        printInfo(ford4);
+
+        Truck man1 = new Truck("MB", "Actros", 5,driverC);
+        printInfo(man1);
+
+        Truck man2 = new Truck("MB", "Actros", 5,driverC);
+        printInfo(man2);
+
+        Truck man3 = new Truck("MB", "Actros", 5,driverC);
+        printInfo(man3);
+
+        Truck man4 = new Truck("MB", "Actros", 5,driverC);
+        printInfo(man4);
+    }
+    private static void printInfo(Transport <?> transport){
+        System.out.println("водитель "+ transport.getDriver() +" управляет автомобилем "+ transport.getBrand() +" "+ transport.getModel() +" и будет участвовать в заезде");
     }
 }

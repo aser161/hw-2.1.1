@@ -1,30 +1,27 @@
 package transport;
 
-public class Transport {
+public class Transport<A extends Driver> implements Competing {
     private final String brand;
     private final String model;
-    private final int year;
-    private final String country;
-    private String color;
-    private int maxSpeed;
+    private float engineVolume;
 
+    private A driver;
 
-
-    public Transport(String brand, String model, int year, String country, String color, int maxSpeed) {
+    public Transport(String brand, String model, float engineVolume, A driver) {
         this.brand = brand;
         this.model = model;
-        this.year = year;
-        this.country = country;
-        this.color = color;
-        this.maxSpeed = maxSpeed;
-
-        if (color == null || color == ""){
-            this.color = "default";
-        }
-        if (maxSpeed<= 0){
-            this.maxSpeed = 100;
-        }
+        this.engineVolume = engineVolume;
+        this.driver = driver;
     }
+
+    public void startMove(){
+        System.out.println(getBrand() + " " + getModel() + " начал движение ");
+    }
+
+    public void finishMove(){
+        System.out.println(getBrand() + " " + getModel() + " закончип движение ");
+    }
+
 
     public String getBrand() {
         return brand;
@@ -34,36 +31,49 @@ public class Transport {
         return model;
     }
 
-    public int getYear() {
-        return year;
+    public float getEngineVolume() {
+        return engineVolume;
     }
 
-    public String getCountry() {
-        return country;
+    public A getDriver() {
+        return driver;
     }
 
-    public String getColor() {
-        return color;
+    public void setEngineVolume(float engineVolume) {
+        this.engineVolume = engineVolume;
     }
 
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
+    public void setDriver(A driver) {
+        this.driver = driver;
     }
 
     @Override
     public String toString() {
 
-        return getBrand() + " " + getModel() +  "\n цвет кузова: " + getColor() + "\n год производства: " + getYear() +
-                "\n страна сборки: " + getCountry() + "\n макс скорость: " + getMaxSpeed()  + " \n ";
+        return getBrand() + " " + getModel() +  "\n объем двигателя: " + getEngineVolume() + " \n ";
     }
 
+    @Override
+    public void pitStop() {
+        System.out.println(getBrand()+ " " + getModel());
+        System.out.println("Остановился");
+        System.out.println("Заправился");
+        System.out.println("Прошел ТО");
+        System.out.println("Продолжил гонку");
+    }
+
+    @Override
+    public void bestTimeRound() {
+        System.out.println(getBrand()+ " " + getModel());
+
+        System.out.println(" Лучшее время круга");
+    }
+
+    @Override
+    public void maxSpeed() {
+        System.out.println(getBrand()+ " " + getModel());
+
+        System.out.println(" Максимальная скорость");
+    }
 }
 
