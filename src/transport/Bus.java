@@ -16,6 +16,11 @@ public enum Capacity{
         this.minCapacity = minCapacity;
         this.maxCapacity = maxCapacity;
     }
+
+    @Override
+    public String toString() {
+        return "вместимость от "+ minCapacity +" чел до "+ maxCapacity +" чел";
+    }
 }
     private Capacity capacity;
 
@@ -30,7 +35,11 @@ public enum Capacity{
 
     @Override
     public void printType() {
-        System.out.println("Вместимость" + getCapacity() );
+        if (capacity != null){
+            System.out.println(getCapacity() );
+        }else {
+            System.out.println("Данных по транспортному средству недостаточно!");
+        }
     }
 
     @Override
@@ -50,6 +59,6 @@ public enum Capacity{
 
     @Override
     public String toString() {
-        return getBrand() + " " + getModel() +  "\n объем двигателя: " + getEngineVolume() + " \n Вместимость " + getCapacity();
+        return getBrand() + " " + getModel() +  "\n объем двигателя: " + getEngineVolume()+ "\n " + capacity;
     }
 }

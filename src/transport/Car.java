@@ -19,6 +19,10 @@ public class Car extends Transport <DriverB> {
             this.typeOfBodyTranslate = typeOfBodyTranslate;
         }
 
+        public String getTypeOfBodyTranslate() {
+            return typeOfBodyTranslate;
+        }
+
         @Override
         public String toString() {
             return typeOfBodyTranslate;
@@ -59,12 +63,16 @@ public class Car extends Transport <DriverB> {
 
     @Override
     public void printType() {
-        System.out.println("тип кузова " + getTypeOfBody());
+        if (typeOfBody != null){
+            System.out.println("тип кузова " + getTypeOfBody());
+        }else {
+            System.out.println("Данных по транспортному средству недостаточно!");
+        }
     }
 
     @Override
     public String toString() {
-        return getBrand() + " " + getModel() +  "\n объем двигателя: " + getEngineVolume() + " \n тип кузова " + getTypeOfBody();
+        return getBrand() + " " + getModel() +  "\n объем двигателя: " + getEngineVolume() + " \n тип кузова " + typeOfBody.getTypeOfBodyTranslate();
     }
 
 }

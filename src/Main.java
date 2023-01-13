@@ -51,6 +51,7 @@ public class Main {
 
         Truck man3 = new Truck("MB", "Actros", 5,driverC, Truck.Carrying.N2);
         printInfo(man3);
+        System.out.println(man3);
 
         Truck man4 = new Truck("MB", "Actros", 5,driverC, Truck.Carrying.N2);
         printInfo(man4);

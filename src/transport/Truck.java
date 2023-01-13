@@ -21,6 +21,11 @@ public class Truck extends Transport<DriverC> {
         public float getMaxCarrying() {
             return maxCarrying;
         }
+
+        @Override
+        public String toString() {
+            return "грузоподъемность от "+ minCarrying +"т до "+ maxCarrying +"т";
+        }
     }
     private Carrying carrying;
 
@@ -35,7 +40,11 @@ public class Truck extends Transport<DriverC> {
 
     @Override
     public void printType() {
-        System.out.println("Грузоподъемность: " + getCarrying() );
+        if (carrying != null){
+            System.out.println(getCarrying() );
+        }else {
+            System.out.println("Данных по транспортному средству недостаточно!");
+        }
     }
 
     @Override
@@ -54,7 +63,7 @@ public class Truck extends Transport<DriverC> {
     }
     @Override
     public String toString() {
-        return getBrand() + " " + getModel() +  "\n объем двигателя: " + getEngineVolume() + " \n Грузоподъемность " + getCarrying();
+        return getBrand() + " " + getModel() +  "\n объем двигателя: " + getEngineVolume() + " \n " + carrying;
     }
 
 }
