@@ -1,12 +1,28 @@
 import transport.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws LicenseTypeException {
 
-        DriverB driverB = new DriverB("Иванов ИИ", true, 5);
-        DriverC driverC = new DriverC("Петров ИИ", true, 7);
-        DriverD driverD = new DriverD("Котов ИИ", true, 9);
+        DriverB driverB = new DriverB("Иванов ИИ", true, 5, "B");
+        try {
+            driverB.checkCategory();
+        } catch (LicenseTypeException e){
+            System.err.println(e.getMessage());
+        }
 
+        DriverD driverD = new DriverD("Котов ИИ", true, 9, "");
+        try {
+            driverD.checkCategory();
+        } catch (LicenseTypeException e){
+            System.err.println(e.getMessage());
+        }
+
+        DriverC driverC = new DriverC("Петров ИИ", true, 7,"C");
+        try {
+            driverC.checkCategory();
+        } catch (LicenseTypeException e){
+            System.err.println(e.getMessage());
+        }
 
         Car ladaGranta = new Car("Lada", "Granta", 1.7f, driverB, Car.TypeOfBody.SEDAN);
         printInfo(ladaGranta);
@@ -36,6 +52,7 @@ public class Main {
 
         Bus ford3 = new Bus("Ford", "Transit", 2,driverD, Bus.Capacity.LITTLE);
         printInfo(ford3);
+//        ford3.passDiagnostics();
 
         Bus ford4 = new Bus("Ford", "Transit", 2,driverD, Bus.Capacity.LITTLE);
         printInfo(ford4);

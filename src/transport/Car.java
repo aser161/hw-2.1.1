@@ -71,6 +71,11 @@ public class Car extends Transport <DriverB> {
     }
 
     @Override
+    public void passDiagnostics() {
+        System.out.println("Авто "+ getBrand() + " " + getModel() + " прошёл диагностику");
+    }
+
+    @Override
     public String toString() {
         return getBrand() + " " + getModel() +  "\n объем двигателя: " + getEngineVolume() + " \n тип кузова " + typeOfBody.getTypeOfBodyTranslate();
     }

@@ -5,16 +5,23 @@ public abstract class Driver  {
 private  String fullName;
 private  boolean driverLicense;
 private int practice;
+private String category;
 
-    public Driver(String fullName, boolean driverLicense) {
-        this.fullName = fullName;
-        this.driverLicense = driverLicense;
-    }
 
-    public Driver(String fullName, boolean driverLicense, int practice) {
+    public Driver(String fullName, boolean driverLicense, int practice, String category) {
         this.fullName = fullName;
         this.driverLicense = driverLicense;
         this.practice = practice;
+        this.category = category;
+    }
+    public void checkCategory() throws LicenseTypeException {
+        if (category == null || category.isEmpty() ){
+            throw new LicenseTypeException(" Необходимо указать верный тип прав!");
+        }
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     public abstract void startMove();

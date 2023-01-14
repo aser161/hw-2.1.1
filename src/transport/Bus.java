@@ -43,6 +43,11 @@ public enum Capacity{
     }
 
     @Override
+    public void passDiagnostics() {
+        throw new RuntimeException ("Автобусы диагностику проходить не могут");
+    }
+
+    @Override
     public void pitStop() {
         super.pitStop();
     }

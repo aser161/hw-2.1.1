@@ -61,6 +61,12 @@ public class Truck extends Transport<DriverC> {
     public void maxSpeed() {
         super.maxSpeed();
     }
+
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Грузовик "+ getBrand() + " " + getModel() + " прошёл диагностику");
+    }
+
     @Override
     public String toString() {
         return getBrand() + " " + getModel() +  "\n объем двигателя: " + getEngineVolume() + " \n " + carrying;

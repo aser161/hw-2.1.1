@@ -1,12 +1,9 @@
 package transport;
 
 public class DriverC extends Driver{
-    public DriverC(
-            String fullName,
-            boolean driverLicense,
-            int practice
-    ) {
-        super(fullName, driverLicense, practice);
+
+    public DriverC(String fullName, boolean driverLicense, int practice, String category) throws LicenseTypeException {
+        super(fullName, driverLicense, practice, category);
     }
 
     @Override
