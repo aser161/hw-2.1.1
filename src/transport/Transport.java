@@ -1,6 +1,10 @@
 package transport;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Transport<A extends Driver> implements Competing {
+    public static List<Mechanic> mechanics = new ArrayList<>();
     private final String brand;
     private final String model;
     private float engineVolume;
