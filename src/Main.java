@@ -2,6 +2,7 @@ import transport.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) throws LicenseTypeException {
@@ -12,9 +13,6 @@ public class Main {
         Mechanic mechanic1 = new Mechanic("Солерно", "Tetra");
         Mechanic mechanic2 = new Mechanic("Бородин", "Petra");
         Mechanic mechanic3 = new Mechanic("Капустин", "Metro");
-        Transport.mechanics.add(mechanic1);
-        Transport.mechanics.add(mechanic2);
-        Transport.mechanics.add(mechanic3);
 
         ServiceStation alexAuto = new ServiceStation("Alex Auto");
 
@@ -108,10 +106,19 @@ public class Main {
         autos.add(man4);
         //printInfo(man4);
 
+        Transport.mechanics.put(ladaGranta, mechanic1);
+        Transport.mechanics.put(bMWZ8, mechanic1);
+        Transport.mechanics.put(audiA8, mechanic2);
+        Transport.mechanics.put(kiaSportage, mechanic2);
+        Transport.mechanics.put(man1, mechanic3);
+        Transport.mechanics.put(man1, mechanic1);
+        System.out.println(Transport.mechanics);
+
+
 //        System.out.println(autos);
-        alexAuto.carryTO();
-        alexAuto.carryTO();
-        alexAuto.carryTO();
+//        alexAuto.carryTO();
+//        alexAuto.carryTO();
+//        alexAuto.carryTO();
     }
     private static void printInfo(Transport <?> transport){
         System.out.println("водитель "+ transport.getDriver() +" управляет автомобилем "+ transport.getBrand() +" "+ transport.getModel() +" и будет участвовать в заезде");

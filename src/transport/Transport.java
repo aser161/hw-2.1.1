@@ -1,10 +1,12 @@
 package transport;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public abstract class Transport<A extends Driver> implements Competing {
-    public static List<Mechanic> mechanics = new ArrayList<>();
+    public static Map<Transport, Mechanic> mechanics = new HashMap<>();
     private final String brand;
     private final String model;
     private float engineVolume;
@@ -58,7 +60,7 @@ public abstract class Transport<A extends Driver> implements Competing {
     @Override
     public String toString() {
 
-        return getBrand() + " " + getModel() +  "\n объем двигателя: " + getEngineVolume() + " \n ";
+        return " \n" + getBrand() + " " + getModel() +  "\n объем двигателя: " + getEngineVolume() + " \n ";
     }
 
     @Override
