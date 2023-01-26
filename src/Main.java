@@ -1,14 +1,12 @@
 import transport.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws LicenseTypeException {
 
         List<Transport>autos = new ArrayList<>();
-        List<Driver> drivers = new ArrayList<>();
+        Set <Driver> drivers = new HashSet<>();
 
         Mechanic mechanic1 = new Mechanic("Солерно", "Tetra");
         Mechanic mechanic2 = new Mechanic("Бородин", "Petra");
@@ -39,6 +37,13 @@ public class Main {
             driverC.checkCategory();
         } catch (LicenseTypeException e){
             System.err.println(e.getMessage());
+        }
+
+        System.out.println(drivers);
+
+        Iterator <Driver> iteratorDrivers = drivers.iterator();
+        while (iteratorDrivers.hasNext()){
+            System.out.println(iteratorDrivers.next());
         }
 
         Car ladaGranta = new Car("Lada", "Granta", 1.7f, driverB, Car.TypeOfBody.SEDAN);
