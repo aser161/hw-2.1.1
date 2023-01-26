@@ -1,50 +1,131 @@
+import transport.*;
+
+import java.util.*;
+
 public class Main {
-    public static void main(String[] args) {
-        Car ladaGranta = new Car();
-        ladaGranta.brand = "Lada";
-        ladaGranta.model = "Granta";
-        ladaGranta.engineVolume = 1.7f;
-        ladaGranta.color = "желтый";
-        ladaGranta.year = 2015;
-        ladaGranta.country = "Россия";
-        System.out.println(ladaGranta);
+    public static void main(String[] args) throws LicenseTypeException {
 
-        Car audiA8 = new Car();
-        audiA8.brand = "Audi ";
-        audiA8.model = "A8 50 L TDI quattro";
-        audiA8.engineVolume = 3;
-        audiA8.color = "черный";
-        audiA8.year = 2020;
-        audiA8.country = "Германия";
-        System.out.println(audiA8);
+        List<Transport>autos = new ArrayList<>();
+        Set <Driver> drivers = new HashSet<>();
 
-        Car bMWZ8 = new Car();
-        bMWZ8.brand = "BMW";
-        bMWZ8.model = "Z8";
-        bMWZ8.engineVolume = 3;
-        bMWZ8.color = "черный";
-        bMWZ8.year = 2021;
-        bMWZ8.country = "Германия";
-        System.out.println(bMWZ8);
+        Mechanic mechanic1 = new Mechanic("Солерно", "Tetra");
+        Mechanic mechanic2 = new Mechanic("Бородин", "Petra");
+        Mechanic mechanic3 = new Mechanic("Капустин", "Metro");
 
-        Car kiaSportage = new Car();
-        kiaSportage.brand = "Kia";
-        kiaSportage.model = "Sportage";
-        kiaSportage.engineVolume = 2.4f;
-        kiaSportage.color = "красный";
-        kiaSportage.year = 2018;
-        kiaSportage.country = "Южная Корея";
-        System.out.println(kiaSportage);
-
-        Car hyundaiAvante = new Car();
-        hyundaiAvante.brand = "Hyundai";
-        hyundaiAvante.model = "Avante";
-        hyundaiAvante.engineVolume = 1.6f;
-        hyundaiAvante.color = "оранжевый";
-        hyundaiAvante.year = 2016;
-        hyundaiAvante.country = "Южная Корея";
-        System.out.println(hyundaiAvante);
+        ServiceStation alexAuto = new ServiceStation("Alex Auto");
 
 
+        DriverB driverB = new DriverB("Иванов ИИ", true, 5, "B");
+        drivers.add(driverB);
+        try {
+            driverB.checkCategory();
+        } catch (LicenseTypeException e){
+            System.err.println(e.getMessage());
+        }
+
+        DriverD driverD = new DriverD("Котов ИИ", true, 9, "D");
+        drivers.add(driverD);
+        try {
+            driverD.checkCategory();
+        } catch (LicenseTypeException e){
+            System.err.println(e.getMessage());
+        }
+
+        DriverC driverC = new DriverC("Петров ИИ", true, 7,"C");
+        drivers.add(driverC);
+        try {
+            driverC.checkCategory();
+        } catch (LicenseTypeException e){
+            System.err.println(e.getMessage());
+        }
+
+        System.out.println(drivers);
+
+        Iterator <Driver> iteratorDrivers = drivers.iterator();
+        while (iteratorDrivers.hasNext()){
+            System.out.println(iteratorDrivers.next());
+        }
+
+        Car ladaGranta = new Car("Lada", "Granta", 1.7f, driverB, Car.TypeOfBody.SEDAN);
+        autos.add(ladaGranta);
+        alexAuto.addAuto(ladaGranta);
+
+//        printInfo(ladaGranta);
+//        System.out.println(ladaGranta);
+
+        Car audiA8 = new Car("Audi", "A8 50 L TDI quattro", 3, driverB, Car.TypeOfBody.SEDAN);
+        autos.add(audiA8);
+        alexAuto.addAuto(audiA8);
+//        printInfo(audiA8);
+ //       System.out.println(audiA8);
+
+        Car bMWZ8 = new Car("BMW", "Z8", 3, driverB, Car.TypeOfBody.SEDAN);
+        autos.add(bMWZ8);
+//        printInfo(bMWZ8);
+//        bMWZ8.printType();
+
+
+        Car kiaSportage = new Car("Kia", "Sportage", 2.4f, driverB, Car.TypeOfBody.SUV);
+        autos.add(kiaSportage);
+//        printInfo(kiaSportage);
+
+
+        Bus ford1 = new Bus("Ford", "Transit", 2, driverD, Bus.Capacity.VERY_LITTLE);
+        autos.add(ford1);
+        alexAuto.addAuto(ford1);
+//        printInfo(ford1);
+//        System.out.println(ford1);
+
+
+        Bus ford2 = new Bus("Ford", "Transit", 2, driverD, Bus.Capacity.VERY_LITTLE);
+        autos.add(ford2);
+//        printInfo(ford2);
+//        ford2.printType();
+
+        Bus ford3 = new Bus("Ford", "Transit", 2,driverD, Bus.Capacity.LITTLE);
+        autos.add(ford3);
+//        printInfo(ford3);
+//        ford3.passDiagnostics();
+
+        Bus ford4 = new Bus("Ford", "Transit", 2,driverD, Bus.Capacity.LITTLE);
+        autos.add(ford4);
+ //       printInfo(ford4);
+
+
+        Truck man1 = new Truck("MB", "Actros", 5,driverC, Truck.Carrying.N2);
+        autos.add(man1);
+//        printInfo(man1);
+//        System.out.println(man1.getCarrying());
+
+        Truck man2 = new Truck("MB", "Actros", 5,driverC, Truck.Carrying.N2);
+        autos.add(man2);
+        //printInfo(man2);
+        //man2.printType();
+
+        Truck man3 = new Truck("MB", "Actros", 5,driverC, Truck.Carrying.N2);
+        autos.add(man3);
+        //printInfo(man3);
+       // System.out.println(man3);
+
+        Truck man4 = new Truck("MB", "Actros", 5,driverC, Truck.Carrying.N2);
+        autos.add(man4);
+        //printInfo(man4);
+
+        Transport.mechanics.put(ladaGranta, mechanic1);
+        Transport.mechanics.put(bMWZ8, mechanic1);
+        Transport.mechanics.put(audiA8, mechanic2);
+        Transport.mechanics.put(kiaSportage, mechanic2);
+        Transport.mechanics.put(man1, mechanic3);
+        Transport.mechanics.put(man1, mechanic1);
+        System.out.println(Transport.mechanics);
+
+
+//        System.out.println(autos);
+//        alexAuto.carryTO();
+//        alexAuto.carryTO();
+//        alexAuto.carryTO();
+    }
+    private static void printInfo(Transport <?> transport){
+        System.out.println("водитель "+ transport.getDriver() +" управляет автомобилем "+ transport.getBrand() +" "+ transport.getModel() +" и будет участвовать в заезде");
     }
 }
